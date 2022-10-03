@@ -1,0 +1,7 @@
+INSERT INTO Users
+    VALUES
+    ('14789524663','Ruan','Rua Ana Paula 482, 
+	 Santa Cruz, BH MG', 'ruantiengo@gmail.com', '88447912'),
+	 ('12345678910','Pedro','Rua José Campos 492, 
+	 Floramar, SP SP', 'josepedro@gmail.com', '14789524663')
+

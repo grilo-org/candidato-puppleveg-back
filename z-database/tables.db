@@ -1,0 +1,27 @@
+CREATE TABLE Users (
+	cpf char(11) PRIMARY KEY, 
+	name varchar(30),
+	address varchar(150),
+	email varchar(50) UNIQUE,
+	password varchar(255),
+	accessToken varchar(255),
+);
+
+
+CREATE TABLE AccessToken(
+	id VARCHAR(255) PRIMARY KEY,
+	expiresIn INT,
+	userCPF char(11),
+	FOREIGN KEY (userCpf) REFERENCES Users(cpf)
+	ON UPDATE CASCADE ON DELETE SET NULL
+)
+
+ALTER TABLE USERS ADD FOREIGN KEY (accessToken) REFERENCES ACCESSTOKEN (id) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+
+CREATE TABLE Employee(
+	cpf Int PRIMARY KEY,
+	name varchar(150),
+	phone varchar(15),
+	salary float,
+	profession varchar(50)
+)
