@@ -1,5 +1,5 @@
 import { Account } from '../../../domain/entities/account'
 
-export interface LoadAccountById{
+export interface LoadAccountByCpf{
     loadAccountById(userCpf: string): Promise<Account>
 }

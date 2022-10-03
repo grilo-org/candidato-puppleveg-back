@@ -4,11 +4,20 @@ import { Account } from "../../../domain/entities/account";
 import { Pool } from 'pg'
 import dayjs from 'dayjs'
 import client from "./client";
-import { LoadAccountById } from "../../../data/protocols/db/load-account-by-id-repository";
-export class AccountPostgresRepository implements loadAccountByEmailRepository, UpdateAccessTokenRepository, LoadAccountById{
+import { LoadAccountByCpf } from "../../../data/protocols/db/load-account-by-cpf-repository";
+import { AddAccountRepository } from "../../../data/protocols/db/add-account-repository";
+import { AddAccount } from "../../../domain/usecases/add-account";
+export class AccountPostgresRepository implements loadAccountByEmailRepository, UpdateAccessTokenRepository, LoadAccountByCpf, AddAccountRepository{
     client: Pool
     constructor(){
         this.client = client
+    }
+    async add(addAccountParams: Omit<AddAccount.Params, "passwordConfirmation">): Promise<boolean> {
+        const query = `INSERT INTO USERS VALUES ('${addAccountParams.cpf}','${addAccountParams.name}','${addAccountParams.email}','${addAccountParams.password}')`
+        await this.client.query(query)
+        
+        
+        return true
     }
     async loadAccountById(userCpf: string): Promise<Account> {
         const query = `SELECT * FROM Users WHERE cpf='${userCpf}'`

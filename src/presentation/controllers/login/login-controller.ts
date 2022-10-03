@@ -1,8 +1,9 @@
-import { Authentication } from "../../domain/usecases/authentication";
-import { InvalidParamsError } from "../errors/invalid-params";
-import { badRequest, ok, serverError } from "../helpers/http-helpers";
-import { Controller } from "../protocols/controller";
-import { HttpResponse } from "../protocols/http-response";
+import { Authentication } from "../../../domain/usecases/authentication"
+import { InvalidParamsError } from "../../errors/invalid-params"
+import { badRequest, ok, serverError, unauthorized } from "../../helpers/http-helpers"
+import { Controller } from "../../protocols/controller"
+import { HttpResponse } from "../../protocols/http-response"
+
 
 export class LoginController implements Controller{
     constructor(private readonly authentication: Authentication){
@@ -12,7 +13,7 @@ export class LoginController implements Controller{
         try{
             const res = await this.authentication.auth(request.body)
             if(res.errorMessage){
-                return badRequest(new InvalidParamsError(res.errorMessage))
+                return unauthorized(new InvalidParamsError(res.errorMessage))
             }        
             return ok(res)     
         }catch(error){

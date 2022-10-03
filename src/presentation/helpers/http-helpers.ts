@@ -21,3 +21,10 @@ export const forbbiden = (error: Error) => {
       body: error
     }
 }
+
+export const unauthorized = (error: Error) => {
+    return {
+      statusCode: 401,
+      body: error
+    }
+}

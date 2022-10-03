@@ -1,3 +1,3 @@
 export interface Hasher{
-    compare(password: string, hashedPassword: string): Promise<boolean>
+    hash(hash: string): Promise<string>
 }

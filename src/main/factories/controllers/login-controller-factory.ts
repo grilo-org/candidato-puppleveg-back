@@ -1,4 +1,4 @@
-import { LoginController } from "../../../presentation/controllers/login-controller"
+import { LoginController } from "../../../presentation/controllers/login/login-controller"
 import { authenticationFactory } from "../data/authentication-factory"
 
 export const loginControllerFactory = () => {

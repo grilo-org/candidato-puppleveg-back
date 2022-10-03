@@ -1,12 +1,12 @@
 import { Account } from '../../domain/entities/account'
 import { ValidateToken } from '../../domain/usecases/validate-token'
 import { Decrypter } from '../protocols/cryptography/decrypter'
-import { LoadAccountById } from '../protocols/db/load-account-by-id-repository'
+import { LoadAccountByCpf } from '../protocols/db/load-account-by-cpf-repository'
 
 
 
 export class DbValidateToken implements ValidateToken {
-  constructor (private readonly decrypter: Decrypter, private readonly loadAccountById: LoadAccountById) {
+  constructor (private readonly decrypter: Decrypter, private readonly loadAccountById: LoadAccountByCpf) {
     this.decrypter = decrypter
     this.loadAccountById = loadAccountById
   }
