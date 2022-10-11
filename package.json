@@ -6,7 +6,9 @@
   "scripts": {
     "test": "jest --passWithNoTests --runInBand --no-cache",
     "test:ci": "yarn test --coverage",
-    "dev": "ts-node-dev --exit-child --transpile-only --ignore-watch node_modules src/main/server.ts"
+    "dev": "ts-node-dev --exit-child --transpile-only --ignore-watch node_modules src/main/server.ts",
+    "build": "tsc --build",
+    "start": "node src/main/server.js"
   },
   "keywords": [],
   "author": "",
