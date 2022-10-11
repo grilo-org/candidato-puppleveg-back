@@ -18,9 +18,24 @@ CREATE TABLE AccessToken(
 ALTER TABLE USERS ADD FOREIGN KEY (accessToken) REFERENCES ACCESSTOKEN (id) ON UPDATE CASCADE ON DELETE SET DEFAULT;
 
 CREATE TABLE Employee(
-	cpf Int PRIMARY KEY,
+	cpf varchar(11) PRIMARY KEY,
 	name varchar(150),
 	phone varchar(15),
 	salary float,
 	profession varchar(50)
+)
+
+CREATE TABLE Costumer(
+	cpf varchar(11) PRIMARY KEY,
+	name varchar(150),
+	address varchar(255),
+	phone varchar(15),
+	animalsCode int[] unique
+);
+
+CREATE TABLE Animal(
+	id  SERIAL PRIMARY KEY,
+	name varchar(100),
+	species varchar(100),
+	breed varchar(100)
 )
