@@ -19,7 +19,7 @@ export class DbAuthentication implements Authentication {
         if (account !== null) {
            const isValid =  await this.hasher.compare(params.password, account.password)
            if(!isValid) return { errorMessage: "Senha inválida."}
-           const accessToken = await this.encrypt.encrypt(account.cpf)
+           const accessToken = await this.encrypt.encrypt(account.cpf)  
            await this.updateAccessTokenRepository.updateAccessToken(account.cpf,accessToken)
            return {
             accessToken: accessToken,

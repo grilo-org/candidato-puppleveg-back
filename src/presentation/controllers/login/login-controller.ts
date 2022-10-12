@@ -11,10 +11,13 @@ export class LoginController implements Controller{
     }
     async handle(request: LoginController.Request): Promise<HttpResponse> {
         try{
+            
             const res = await this.authentication.auth(request.body)
             if(res.errorMessage){
                 return unauthorized(new InvalidParamsError(res.errorMessage))
-            }        
+            }  
+        
+                  
             return ok(res)     
         }catch(error){
             return serverError()

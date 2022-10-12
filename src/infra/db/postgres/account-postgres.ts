@@ -27,6 +27,7 @@ export class AccountPostgresRepository implements loadAccountByEmailRepository, 
     
     async updateAccessToken(cpf: string, accessToken: string): Promise<void> {
         const expiresIn = dayjs().add(15, 'second').unix()
+    
         let findToken = await this.client.query(`SELECT * FROM ACCESSTOKEN WHERE USERCPF='${cpf}'`)
        
         
