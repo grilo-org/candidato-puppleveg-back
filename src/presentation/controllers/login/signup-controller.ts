@@ -21,7 +21,7 @@ export class SignUpController implements Controller {
       if (!isValid) return badRequest(new LabelAlreadyInUse(errorMessage!))
       return ok({ email, password, name })
     } catch(error){
-      console.log(error);
+      (error);
       
       return serverError()
     }

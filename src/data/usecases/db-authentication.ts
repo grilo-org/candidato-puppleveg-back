@@ -21,8 +21,6 @@ export class DbAuthentication implements Authentication {
            if(!isValid) return { errorMessage: "Senha inválida."}
            const accessToken = await this.encrypt.encrypt(account.cpf)
            await this.updateAccessTokenRepository.updateAccessToken(account.cpf,accessToken)
-           console.log('entra aqui');
-           
            return {
             accessToken: accessToken,
             name: account.name,

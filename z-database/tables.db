@@ -30,12 +30,37 @@ CREATE TABLE Costumer(
 	name varchar(150),
 	address varchar(255),
 	phone varchar(15),
-	animalsCode int[] unique
 );
+ALTER TABLE COSTUMER ADD FOREIGN KEY (animalsCode) REFERENCES Animal (id) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+
 
 CREATE TABLE Animal(
 	id  SERIAL PRIMARY KEY,
 	name varchar(100),
 	species varchar(100),
-	breed varchar(100)
+	breed varchar(100),
+	FOREIGN KEY (cpf_costumer) REFERENCES Costumer(cpf)
 )
+
+/* Lógico_1: */
+
+CREATE TABLE Costumer (
+    cpf varchar(11) PRIMARY KEY,
+	name varchar(150),
+	address varchar(255),
+	phone varchar(15)
+);
+
+CREATE TABLE Animal (
+    fk_Costumer_cpf varchar,
+	name varchar(100),
+	species varchar(100),
+	breed varchar(100),
+	id SERIAL PRIMARY KEY
+);
+ 
+ALTER TABLE Animal ADD CONSTRAINT FK_Animal_1
+    FOREIGN KEY (fk_Costumer_cpf)
+    REFERENCES Costumer (cpf)
+	ON UPDATE CASCADE
+    ON DELETE CASCADE;

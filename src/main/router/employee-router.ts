@@ -9,7 +9,7 @@ export const employeeRoute = (router: Router) => {
     try {
       const query = `select * from employee`
       const employess = (await client.query(query)).rows
-      console.log(employess);
+      
       return res.send(employess)
     }
     catch (error) {
@@ -36,8 +36,7 @@ export const employeeRoute = (router: Router) => {
   router.get('/employees/:cpf', async (req: Request, res: Response) => {
     try {
       const { cpf } = req.params
-      console.log(cpf);
-
+      
       const cpfAlreadyRegistrered = `SELECT * from Employee where cpf='${cpf}'`
       const cpfExists = await (await client.query(cpfAlreadyRegistrered)).rows[0]
       if (!cpfExists) {
@@ -54,7 +53,7 @@ export const employeeRoute = (router: Router) => {
   router.delete('/employees/:cpf', async (req: Request, res: Response) => {
     try {
       const { cpf } = req.params
-      console.log(cpf);
+      
 
       const cpfAlreadyRegistrered = `SELECT * from Employee where cpf='${cpf}'`
       const cpfExists = await (await client.query(cpfAlreadyRegistrered)).rows[0]
@@ -72,8 +71,7 @@ export const employeeRoute = (router: Router) => {
     try {
       const { cpf: oldCpf } = req.params
       const { cpf, name, phone, profession, salary } = req.body
-      console.log(oldCpf);
-
+    
       const cpfAlreadyRegistrered = `SELECT * from Employee where cpf='${oldCpf}'`
       const cpfExists = await (await client.query(cpfAlreadyRegistrered)).rows[0]
       if (!cpfExists)
@@ -82,8 +80,8 @@ export const employeeRoute = (router: Router) => {
       const newCpfAlreadyRegistrered = `SELECT * from Employee where cpf='${cpf}'`
 
       if (oldCpf !== cpf) {
-        console.log(oldCpf == cpf);
-        console.log(oldCpf, cpf);
+        (oldCpf == cpf);
+  
         
         const newCpfExists = await (await client.query(newCpfAlreadyRegistrered)).rows[0]
         if (newCpfExists) return res.status(400).json({ message: 'O novo CPF já está cadastrado como outro funcionario.' })

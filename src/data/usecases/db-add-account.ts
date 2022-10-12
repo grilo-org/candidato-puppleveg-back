@@ -12,9 +12,7 @@ export class DbAddAccount implements AddAccount {
   }
 
   async add (addAccountParams:Omit<AddAccount.Params, 'passwordConfirmation'>): Promise<{isValid: boolean, errorMessage?: string}> {
-    const hashedPassword = await this.hasher.hash(addAccountParams.password)
-    console.log(hashedPassword.length);
-    
+    const hashedPassword = await this.hasher.hash(addAccountParams.password)    
     const loadAccountByCpf = await this.loadAccountByCpf.loadAccountById(addAccountParams.cpf)
     const loadByEmail = await this.loadAccountByEmail.loadByEmail(addAccountParams.email) 
     if(loadByEmail) return {isValid: false, errorMessage: 'Email já cadastrado.'}
