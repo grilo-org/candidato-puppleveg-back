@@ -13,7 +13,7 @@ export const employeeRoute = (router: Router) => {
       return res.send(employess)
     }
     catch (error) {
-      return res.json('Server Error.')
+      return res.status(500).json('Server Error.')
     }
   })
 
@@ -29,7 +29,7 @@ export const employeeRoute = (router: Router) => {
       await client.query(insertEmployee)
       return res.json({ status: 'Criado com sucesso.' })
     } catch (error) {
-      return res.json(error)
+      return res.status(500).json(error)
     }
   })
 
@@ -46,7 +46,7 @@ export const employeeRoute = (router: Router) => {
       const employee = await (await client.query(insertEmployeeQuery)).rows[0]
       return res.json(employee)
     } catch (error) {
-      return res.json(error)
+      return res.status(500).json(error)
     }
   })
 
@@ -64,7 +64,7 @@ export const employeeRoute = (router: Router) => {
       await client.query(deleteEmployeeQuery)
       return res.json({ status: 'Funcionario deletado com sucesso.' })
     } catch (error) {
-      return res.json(error)
+      return res.status(500).json(error)
     }
   })
   router.put('/employees/:cpf', async (req: Request, res: Response) => {
@@ -91,7 +91,7 @@ export const employeeRoute = (router: Router) => {
       const employee = await (await client.query(updateEmployeeQuery)).rows[0]
       return res.json(employee)
     } catch (error) {
-      return res.json(error)
+      return res.status(500).json(error)
     }
   })
   

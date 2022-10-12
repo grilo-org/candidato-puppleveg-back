@@ -25,42 +25,50 @@ CREATE TABLE Employee(
 	profession varchar(50)
 )
 
-CREATE TABLE Costumer(
-	cpf varchar(11) PRIMARY KEY,
-	name varchar(150),
-	address varchar(255),
-	phone varchar(15),
-);
-ALTER TABLE COSTUMER ADD FOREIGN KEY (animalsCode) REFERENCES Animal (id) ON UPDATE CASCADE ON DELETE SET DEFAULT;
-
-
-CREATE TABLE Animal(
-	id  SERIAL PRIMARY KEY,
-	name varchar(100),
-	species varchar(100),
-	breed varchar(100),
-	FOREIGN KEY (cpf_costumer) REFERENCES Costumer(cpf)
-)
-
-/* Lógico_1: */
-
 CREATE TABLE Costumer (
     cpf varchar(11) PRIMARY KEY,
-	name varchar(150),
-	address varchar(255),
-	phone varchar(15)
+    name varchar(150),
+    address varchar(255),
+    phone varchar(15)
 );
 
 CREATE TABLE Animal (
-    fk_Costumer_cpf varchar,
-	name varchar(100),
-	species varchar(100),
-	breed varchar(100),
+    name varchar(100),
+    species varchar(100),
+    breed varchar(100),
+    fk_Costumer_cpf varchar(11),
 	id SERIAL PRIMARY KEY
 );
+
+CREATE TABLE Service (
+    value float,
+    name varchar(50),
+    whichSpecies varchar(50),
+	id SERIAL PRIMARY KEY
+);
+
+CREATE TABLE Request (
+    fk_Service_id int,
+    fk_Animal_id int,
+    Data date,
+    status varchar(50),
+    id serial primary key
+);
  
-ALTER TABLE Animal ADD CONSTRAINT FK_Animal_1
+ALTER TABLE Animal ADD CONSTRAINT FK_Animal_2
     FOREIGN KEY (fk_Costumer_cpf)
     REFERENCES Costumer (cpf)
 	ON UPDATE CASCADE
-    ON DELETE CASCADE;
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Request ADD CONSTRAINT FK_Request_1
+    FOREIGN KEY (fk_Service_id)
+    REFERENCES Service (id)
+	ON UPDATE CASCADE
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Request ADD CONSTRAINT FK_Request_2
+    FOREIGN KEY (fk_Animal_id)
+    REFERENCES Animal (id)
+	ON UPDATE CASCADE
+    ON DELETE SET NULL;

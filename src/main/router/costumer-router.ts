@@ -88,8 +88,7 @@ export const costumerRouter = (router: Router) => {
           
           
           const costumer = await (await client.query(updateEmployeeQuery)).rows[0]
-          console.log(client.query(updateEmployeeQuery));
-          
+        
           return res.json(costumer)
         } catch (error) {
           return res.json(error)
