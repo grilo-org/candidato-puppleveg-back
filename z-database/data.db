@@ -1,5 +1,29 @@
-INSERT INTO Users
-    VALUES
-    ('14789524663','Ruan','Rua Ana Paula 482, 'ruantiengo@gmail.com', '88447912'),
-	('12345678910','Pedro','Rua José Campos 492, 'josepedro@gmail.com', '85637727')
+INSERT INTO USERS VALUES ('80742199096','Jose','haixia1277@uorak.com','$2b$12$RfX4HTE5IL.n3xenVIQ1P.HwUDjysFTMGiIwXr.BSxGG2/OHaY4/O');
+INSERT INTO USERS VALUES ('71081965061','Pedro','yoselin7492@uorak.com','$2b$12$RfX4HTE5IL.n3xenVIQ112312321qweoqwekoXr.BSxGG2/OHaY4/O');
+INSERT INTO USERS VALUES ('14789524663','Ruan Tiengo','ruantiengo@gmail.com','$2b$12$qcFyxgeDtanYCkPmf4Vx.O4AfAXeJXchtvOMub4V8NrEIcF3RyOaa');
 
+insert into employee values ('45926012031','Joseph','31934583614','1800','Vendedor');
+insert into employee values ('65102451081','Richard','31934583612','1400','Motoboy');
+insert into employee values ('93580301004','Allyson','31988447912','6500','Veterinario');
+insert into employee values ('95186087416','Arthur Harvey','31797177855','8060','Antimony');
+insert into employee values ('60914282689','Adam Tromp','31707973546','4406','Europium');
+insert into employee values ('20422682675','Ms. Katrina Olson MD','31440246437','2458','Cobalt');
+insert into employee values ('52675484806','Enrique Fritsch','31627320885','1504','Tantalum');
+insert into employee values ('01860793380','Roland Frami','31046853569','8148','Oganesson');
+insert into employee values ('03274714763','Clint White DVM','31695819010','4445','Sulfur');
+insert into employee values ('04464927289','Marc Blick','31345575248','9388','Rubidium');
+insert into employee values ('63029448134','Terrell Howe','31742415931','2045','Silicon');
+insert into employee values ('38260385090','Daniel Zemlak','31116242890','8946','Nickel');
+insert into employee values ('95024972287','Shawn Pouros','31311510230','1684','Bohrium');
+insert into employee values ('49112551023','Amenadiel','31988215324','8000','Veterinario');
+
+insert into costumer values ('62385183323','Ms. Alyssa Runolfsson','5867 Ruecker Circles','31872864977');
+insert into costumer values ('78422194350','Dr. Frank Schinner','26803 Jackson Walk','31136191178');
+insert into costumer values ('74160820212','Eva King','2417 Cordia Haven','31505938486');
+insert into costumer values ('63224213523','Jamie Schmeler','000 Dayana Corner','31340939264');
+insert into costumer values ('36958955862','Miss Lucille Stanton','693 Selmer Manors','31896522132');
+insert into costumer values ('31220685321','Ms. June Herman','4709 Gunnar Mall','31852128287');
+insert into costumer values ('16287768894','Patsy VonRueden','41574 Schuster Trail','31565852892');
+insert into costumer values ('20435056026','Cecilia Bosco','0787 Wintheiser Manors','31991775839');
+insert into costumer values ('10072046643','Rex Schinner','1628 Oberbrunner Corner','31287392884');
+insert into costumer values ('72486859179','Mr. Alfredo Lebsack','5015 Lockman Street','31250301967');

@@ -1,6 +1,7 @@
 import { Request, Router, Response } from 'express'
 import client from '../../infra/db/postgres/client'
 import { auth } from '../middlewares/auth'
+import { fakeData } from '../utils/fakeData'
 
 
 export const employeeRoute = (router: Router) => {
@@ -26,6 +27,8 @@ export const employeeRoute = (router: Router) => {
         return res.status(400).json({ message: 'Um funcionario com esse cpf já existe' })
       }
       const insertEmployee = `insert into employee values ('${cpf}','${name}','${phone}','${salary}','${profession}')`
+      console.log(insertEmployee);
+      
       await client.query(insertEmployee)
       return res.json({ status: 'Criado com sucesso.' })
     } catch (error) {
