@@ -1,6 +1,5 @@
 import { Request, Response, Router } from 'express'
 import client from '../../infra/db/postgres/client'
-import { fakeData } from '../utils/fakeData'
 
 export const costumerRouter = (router: Router) => {
     router.get('/costumers', async (req: Request, res: Response) => {
@@ -15,7 +14,6 @@ export const costumerRouter = (router: Router) => {
     })
     router.post('/costumers', async (req: Request, res: Response) => {
         try {
-           fakeData()
             const { cpf, name, address, phone } = req.body
             const cpfAlreadyRegistrered = `SELECT * from Costumer where cpf='${cpf}'`
             const cpfExists = await (await client.query(cpfAlreadyRegistrered)).rows[0]

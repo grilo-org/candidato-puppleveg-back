@@ -1,7 +1,7 @@
 import { Request, Router, Response } from 'express'
 import client from '../../infra/db/postgres/client'
 import { auth } from '../middlewares/auth'
-import { fakeData } from '../utils/fakeData'
+
 
 
 export const employeeRoute = (router: Router) => {
